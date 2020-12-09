@@ -14,9 +14,6 @@ function passwordCreation() {
   
   var charLength = prompt("How many characters would you like to have between 8 to 128?");
 
-  if(charLength < 8 || charLength > 128){
-      alert("You have to choose password length between 8 and 128 long"); 
-  }
   else{
     if(confirm("Include uppercase letters?")){
       Array.pwd.push.apply(charList, upperC);
