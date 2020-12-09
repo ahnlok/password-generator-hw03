@@ -1,15 +1,9 @@
 var generateBtn = document.querySelector("#generate");
+var password = generatePassword();
+var passwordText = document.querySelector("#password");
 
-function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-  
-    passwordText.value = password;
-  
-}
-//Function for generating password
 function generatePassword(){
-    //Static variable
+//Static variable
     var upperC = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     var lowerC = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -17,33 +11,36 @@ function generatePassword(){
     //Global variable
     var allChar = [];
 
-    var length = pareInt(prompt("How many characters would you like to have between 8 to 128?"));
-        if (length < 8 || length > 128 ||){
-            alert("Your passwords must have length of 8 to 128 letters!");
-            return;
-        }
-        if(length !== typeof number){
-            alert("Try again typing letters between 8 to 128!");
-            return;
-        }
-        
+    do{
+        length = prompt("How many characters would you like to have between 8 to 128?");
+    }
+        while(length < 8 || length > 128);
+
     var upperCase = confirm("Include uppercase letters?");
     var lowerCase = confirm("Include lowercase letters?");
     var numberCase = confirm("Include numbers?");
     var symbolCase = confirm("Include symbols?");
         if(upperCase === true){
-            (allChar.push(upperC));
+            allChar.push(upperC);
         }
         if(upperCase === true){
-            (allChar.push(lowerC));
+            allChar.push(lowerC);
         } 
         if(upperCase === true){
-            (allChar.push(number));
+            allChar.push(number);
         } 
         if(upperCase === true){
-            (allChar.push(symbol));
+            allChar.push(symbol);
         }
-    return "temporary password";
+        if (allChar.length < 1){
+            alert ("Try again, and follow the guideline!");
+        }
+        for(let i = 0; i < length; i++){
+            var final = Math.floor(Math.random() * lowerC.length)
+            password = password + lowerC[final];
+        }
+        return password;
+    }
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
