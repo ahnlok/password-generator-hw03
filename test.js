@@ -5,7 +5,7 @@ var upperC = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 var lowerC = ["abcdefghijklmnopqrstuvwxyz"];
 var number = ["1234567890"];
 var symbol = ["!@#$%^&*()_+"];
-var passwordGenValue = "";
+var allChar = "";
 
 //Function for writing password
 function writePassword() {
@@ -23,30 +23,30 @@ function generatePassword() {
         alert("Try to pick length between 8 to 128!");
         return generatePassword()
     }
-    console.log("Length of your password is " + pwdLength);
+    //console.log("Length of your password is " + pwdLength);
 
     var upperCase = confirm("Include uppercase letter?");
-    if(upperCase) {
-        var passwordGen = passwordGen.concat(upperC)
-        console.log("uppercase used");
+    if(upperCase){
+        var passwordGen = passwordGen.concat(upperC);
+        //console.log("uppercase used");
     }
 
     var lowerCase = confirm("Include lowercase letter?");
-    if(lowerCase) {
-        var passwordGen = passwordGen.concat(lowerC)
-        console.log("lowercase used");
+    if(lowerCase){
+        var passwordGen = passwordGen.concat(lowerC);
+        //console.log("lowercase used");
     } 
-
+    
     var numberCase = confirm("Include number?");
-    if(numberCase) {
-        var passwordGen = passwordGen.concat(number)
-        console.log("number used");
+    if(numberCase){
+        var passwordGen = passwordGen.concat(number);
+        //console.log("number used");
     } 
 
     var symbolCase = confirm("Include symbol?");
-    if(symbolCase) {
-        var passwordGen = passwordGen.concat(symbol)
-        console.log("symbol used");
+    if(symbolCase){
+        var passwordGen = passwordGen.concat(symbol);
+        //console.log("symbol used");
     }
 
     if(!upperCase && !lowerCase && !numberCase && !symbolCase){
@@ -56,8 +56,8 @@ function generatePassword() {
 
     var password = "";
     for (var i =0; i < pwdLength; i++){
-        var random = Math.floor(Math.random() * passwordGenValue.length)
-        var randomValue = passwordGenValue[random];
+        var random = Math.floor(Math.random() * passwordGen.length);
+        var randomValue = passwordGen[random];
         password = randomValue + password;
     }
     return password;
