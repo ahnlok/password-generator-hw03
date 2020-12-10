@@ -15,19 +15,20 @@ do{
 }
     while(length < 8 || length > 128);
 
-var upperCase = confirm("Include uppercase letters?");
-var lowerCase = confirm("Include lowercase letters?");
-var numberCase = confirm("Include numbers?");
-var symbolCase = confirm("Include symbols?");
-
-window.addEventListener('load', function(){
-    generatePassword();
-});
-
 function generatePassword() {
     var password = ""
-    if(upperCase){
-        password +- rando(upperCase = upperC);
+    
+    if(confirm("Include uppercase letters?")){
+        allChar.push(upperC);
+    }
+    if(confirm("Include lowercase letters?")){
+        allChar.push(lowerC);
+    }
+    if(confirm("Include number letters?")){
+        allChar.push(number);
+    }
+    if(confirm("Include symbol letters?")){
+        allChar.push(symbol);
     }
     for(var i = 0; i < length; i++){
         var final = Math.floor(Math.random() * lowerC.length)
