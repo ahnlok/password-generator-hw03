@@ -9,6 +9,7 @@
 * [License](#license)
  ---
  ## Features
+ ![randomworldgeneratorimage](./image.png)
  1. ##### Pick your choices from pop-up box to generate random password.
  2. ##### Click the button to receive your randomly generated password.
  ---
