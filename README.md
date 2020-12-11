@@ -22,7 +22,7 @@
 ## Credit:
 Sungpil An <ansungpil1@gmail.com>
 ##### URL:
-- GitPage:< https://ahnlok.github.io/password-generator-hw03/>
+- GitPage:<https://ahnlok.github.io/password-generator-hw03/>
 - GitHubRepository:<https://github.com/ahnlok/password-generator-hw03>
 ---
 ## License: 
