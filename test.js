@@ -6,60 +6,66 @@ var lowerC = ["abcdefghijklmnopqrstuvwxyz"];
 var number = ["1234567890"];
 var symbol = ["!@#$%^&*()_+"];
 
-var password = generatePassword();
-var passwordGen = [];
+var allChar = "";
 
 passwordText.value = password;
       
 //Function for generating password
 function generatePassword(){
-    // var upperCase = confirm("Include uppercase letter?");
-    // var lowerCase = confirm("Include lowercase letter?");
-    // var numberCase = confirm("Include number?");
-    // var symbolCase = confirm("Include symbol?");
+    // var passwordGen = [];
 
-    var pwdLength = prompt("How many characters would you like to have between 8 to 128?");
+    var upperCase = confirm("Include uppercase letter?");
+    var lowerCase = confirm("Include lowercase letter?");
+    var numberCase = confirm("Include number?");
+    var symbolCase = confirm("Include symbol?");
 
-    var password = "";
-    
-    if(pwdLength < 8 || pwdLength > 128){
-        alert("Try to pick length between 8 to 128!");
+    var pwdLength = parseInt(prompt("How many characters would you like to have between 8 to 128?"));
+
+    while(pwdLength < 8 || pwdLength > 128){
+        choseLengthCorrectly();
+    //     alert("Try to pick length between 8 to 128!");
     }
-    else{
-        if(confirm("Include uppercase letter?")){
-            passwordGen.push(upperC);
+    // else{
+    //     if(confirm("Include uppercase letter?")){
+    //         passwordGen.push(upperC);
+    //     }
+    //     if(confirm("Include lowercase letter?")){
+    //         passwordGen.push(lowerC);
+    //     }
+    //     if(confirm("Include number?")){
+    //         passwordGen.push(number);
+    //     }
+    //     if(confirm("Include symbol?")){
+    //         passwordGen.push(symbol);
+    //     }
+        if(upperCase){
+            allChar.concat(upperC);
         }
-        if(confirm("Include lowercase letter?")){
-            passwordGen.push(lowerC);
+        if(lowerCase){
+            allChar.concat(lowerC);
+            //console.log("lowercase used");
+        } 
+        if(numberCase){
+            allChar.concat(number);
+            //console.log("number used");
+        } 
+        if(symbolCase){
+            allChar.concat(symbol);
+            //console.log("symbol used");
+        }   
+        if(!upperC && !lowerC && !number && !symbol){
+            alert("Must use at least one of the choices");
+            return;
         }
-        if(confirm("Include number?")){
-            passwordGen.push(number);
+        var password = "";
+        for (var i =0; i < pwdLength; i++) {
+            password +- allChar[Math.floor(Math.random() * allChar.length)];
+            // var random = Math.floor(Math.random() * passwordGen.length);
+            // password = password + passwordGen[random];
         }
-        if(confirm("Include symbol?")){
-            passwordGen.push(symbol);
-        }
-        // if(lowerCase){
-        //     var passwordGen = passwordGen.concat(lowerC);
-        //     //console.log("lowercase used");
-        // } 
-        // if(numberCase){
-        //     var passwordGen = passwordGen.concat(number);
-        //     //console.log("number used");
-        // } 
-        // if(symbolCase){
-        //     var passwordGen = passwordGen.concat(symbol);
-        //     //console.log("symbol used");
-        // }   
-        // if(!upperCase && !lowerCase && !numberCase && !symbolCase){
-        //     alert("Must use at least one of the choices");
-        // }
-    }
-    for (var i =0; i < pwdLength; i++) {
-        var random = Math.floor(Math.random() * passwordGen.length);
-        password = password + passwordGen[random];
-    }
-    return password;
+        passBox.textContent = password;  
 }
-generatePassword()
+generatePassword();
+generateBtn.addEventListener("click", generatePassword);
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
