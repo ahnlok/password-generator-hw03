@@ -5,7 +5,7 @@
  ## Table of Contents:
 * [Features](#features)
 * [Contribution](#contribution)
-* [Credits](#credits)
+* [Credit](#credit)
 * [License](#license)
  ---
  ## Features
